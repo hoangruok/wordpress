@@ -8869,3 +8869,173 @@
 [14-Jul-2025 13:08:14 UTC] [CHECK] Function "tutor_utils" exists? YES
 [14-Jul-2025 13:08:14 UTC] [CHECK] Function "tutor" exists? YES
 [14-Jul-2025 13:08:14 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:10:19 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:10:23 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:10:23 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:10:23 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:10:23 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:11:45 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:11:50 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:11:50 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:11:50 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:11:50 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:12:47 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:12:53 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:12:53 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:12:53 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:12:53 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:13:47 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:13:51 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:13:51 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:13:51 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:13:51 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:14:48 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:14:52 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:14:52 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:14:52 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:14:52 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:15:50 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:15:54 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:15:54 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:15:54 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:15:54 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:17:49 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:17:52 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:17:52 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:17:52 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:17:52 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:19:50 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:19:55 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:19:55 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:19:55 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:19:55 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:21:52 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:21:56 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:21:56 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:21:56 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:21:56 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:23:53 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:23:57 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:23:57 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:23:57 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:23:57 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:25:55 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:26:06 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:26:06 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:26:06 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:26:06 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:28:07 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:28:10 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:28:10 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:28:10 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:28:10 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:29:06 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:29:11 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:29:11 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:29:11 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:29:11 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 13:31:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 13:31:14 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 13:31:14 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 13:31:14 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 13:31:14 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:44:47 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:44:56 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:44:56 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:44:56 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:44:56 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:45:02 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:45:07 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:45:07 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:45:07 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:45:07 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:45:11 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:45:14 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:45:14 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:45:14 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:45:14 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:45:14 UTC] [DEBUG] Function tutor_enroll_a_student: NOT FOUND
+[14-Jul-2025 14:45:14 UTC] [DEBUG] Function tutor_utils: EXISTS
+[14-Jul-2025 14:45:14 UTC] [DEBUG] Function tutor_get_course_id_by_lesson: NOT FOUND
+[14-Jul-2025 14:45:14 UTC] [DEBUG] Function tutor_is_enrolled: NOT FOUND
+[14-Jul-2025 14:45:14 UTC] [DEBUG] Tutor LMS plugin active: YES
+[14-Jul-2025 14:45:14 UTC] [DEBUG] Tutor enrollments table exists: NO
+[14-Jul-2025 14:45:21 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:45:22 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:45:23 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:45:23 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:45:23 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:45:23 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:45:23 UTC] [DEBUG] Function tutor_enroll_a_student: NOT FOUND
+[14-Jul-2025 14:45:23 UTC] [DEBUG] Function tutor_utils: EXISTS
+[14-Jul-2025 14:45:23 UTC] [DEBUG] Function tutor_get_course_id_by_lesson: NOT FOUND
+[14-Jul-2025 14:45:23 UTC] [DEBUG] Function tutor_is_enrolled: NOT FOUND
+[14-Jul-2025 14:45:23 UTC] [DEBUG] Tutor LMS plugin active: YES
+[14-Jul-2025 14:45:23 UTC] [DEBUG] Tutor enrollments table exists: NO
+[14-Jul-2025 14:45:24 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:45:24 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:45:24 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:45:24 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:45:25 UTC] [DEBUG] Function tutor_enroll_a_student: NOT FOUND
+[14-Jul-2025 14:45:25 UTC] [DEBUG] Function tutor_utils: EXISTS
+[14-Jul-2025 14:45:25 UTC] [DEBUG] Function tutor_get_course_id_by_lesson: NOT FOUND
+[14-Jul-2025 14:45:25 UTC] [DEBUG] Function tutor_is_enrolled: NOT FOUND
+[14-Jul-2025 14:45:25 UTC] [DEBUG] Tutor LMS plugin active: YES
+[14-Jul-2025 14:45:25 UTC] [DEBUG] Tutor enrollments table exists: NO
+[14-Jul-2025 14:45:31 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:45:38 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:45:38 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:45:38 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:45:38 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:45:46 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:45:51 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:45:51 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:45:51 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:45:51 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:46:30 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:46:38 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:46:38 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:46:38 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:46:38 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:47:01 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:47:06 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:47:07 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:47:07 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:47:07 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:47:07 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:47:55 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:48:31 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:48:38 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:48:38 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:48:38 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:48:38 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:50:14 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:50:19 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:50:20 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:50:20 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:50:20 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:50:20 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:50:23 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:50:23 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:50:23 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:50:23 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:50:23 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:50:29 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:50:29 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:50:29 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:50:29 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:51:28 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:51:28 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:51:29 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:51:29 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:51:29 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:51:29 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:51:30 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:51:30 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:51:31 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:51:31 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
+[14-Jul-2025 14:53:32 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>happyforms</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[14-Jul-2025 14:53:36 UTC] [CHECK] Function "tutor_enroll_a_student" exists? NO
+[14-Jul-2025 14:53:36 UTC] [CHECK] Function "tutor_utils" exists? YES
+[14-Jul-2025 14:53:36 UTC] [CHECK] Function "tutor" exists? YES
+[14-Jul-2025 14:53:36 UTC] [CHECK] Function "tutor_get_course_by_enrollment" exists? NO
