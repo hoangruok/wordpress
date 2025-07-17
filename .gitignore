@@ -3,3 +3,8 @@
 
 # visual studio code
 .vscode/
+
+# WordPress
+wp-content/debug.log
+
+wp-content/uploads/
