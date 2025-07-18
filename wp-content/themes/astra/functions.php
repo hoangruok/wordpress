@@ -610,6 +610,11 @@ function get_enrolled_students_for_course($course_id) {
 
     return $students;
 }
+function allow_mov_uploads( $mime_types ) {
+    $mime_types['mov'] = 'video/quicktime'; // Add .mov support
+    return $mime_types;
+}
+add_filter( 'upload_mimes', 'allow_mov_uploads' );
 
 
 ?>
