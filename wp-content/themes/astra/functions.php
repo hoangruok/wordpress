@@ -221,3 +221,395 @@ function replace_user_info_in_menu($items, $args) {
     }
     return $items;
 }
+if (!is_plugin_active('tutor/tutor.php')) {
+    $_SESSION['course_key_notice'] = '🚫 Tutor LMS chưa được kích hoạt. Vui lòng kích hoạt plugin.';
+    return;
+}
+
+function register_course_key_cpt() {
+    register_post_type('course_key', array(
+        'labels' => array(
+            'name' => 'Course Keys',
+            'singular_name' => 'Course Key',
+            'add_new_item' => 'Add New Course Key',
+            'edit_item' => 'Edit Course Key'
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'menu_icon' => 'dashicons-key',
+        'supports' => array('title'),
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'menu_position' => 20,
+    ));
+}
+add_action('init', 'register_course_key_cpt');
+
+// ✅ Meta Boxes
+function course_key_meta_boxes() {
+    add_meta_box('course_key_info', 'Course Key Details', 'course_key_meta_callback', 'course_key');
+}
+add_action('add_meta_boxes', 'course_key_meta_boxes');
+
+function course_key_meta_callback($post) {
+    wp_nonce_field('course_key_meta_nonce', 'course_key_meta_nonce');
+    $course_id = get_post_meta($post->ID, 'course_id', true);
+    $used = get_post_meta($post->ID, 'used', true);
+    $used_by = get_post_meta($post->ID, 'used_by', true);
+    ?>
+    <p><label>Course ID: </label>
+    <input type="number" name="course_id" value="<?php echo esc_attr($course_id); ?>" /></p>
+
+    <p><label>Used: </label>
+    <input type="checkbox" name="used" value="1" <?php checked($used, '1'); ?> /></p>
+
+    <p><label>Used By (User ID): </label>
+    <input type="number" name="used_by" value="<?php echo esc_attr($used_by); ?>" /></p>
+    <?php
+}
+
+function save_course_key_meta($post_id) {
+    // Check nonce and permissions
+    if (!isset($_POST['course_key_meta_nonce']) || !wp_verify_nonce($_POST['course_key_meta_nonce'], 'course_key_meta_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (array_key_exists('course_id', $_POST)) {
+        update_post_meta($post_id, 'course_id', intval($_POST['course_id']));
+    }
+    update_post_meta($post_id, 'used', isset($_POST['used']) ? '1' : '0');
+
+    if (array_key_exists('used_by', $_POST)) {
+        update_post_meta($post_id, 'used_by', intval($_POST['used_by']));
+    }
+}
+add_action('save_post', 'save_course_key_meta');
+
+// ✅ Auto-generate title if missing
+function auto_generate_course_key($post_id) {
+    $post = get_post($post_id);
+    if ($post->post_type !== 'course_key') return;
+
+    if (!get_the_title($post_id)) {
+        $random = strtoupper(bin2hex(random_bytes(3)));
+        $key = 'KEY_' . $random;
+        wp_update_post(array(
+            'ID' => $post_id,
+            'post_title' => $key
+        ));
+    }
+}
+add_action('save_post_course_key', 'auto_generate_course_key');
+
+// ✅ Start session if not already started
+function start_session() {
+    if (!session_id()) {
+        session_start();
+    }
+}
+add_action('init', 'start_session');
+// ✅ Course key activation handler - FIXED VERSION
+function handle_course_key_activation() {
+
+    if (!isset($_GET['active_key'])) {
+        return;
+    }
+
+    $active_key = sanitize_text_field($_GET['active_key']);
+    error_log("[DEBUG] ✅ Received active_key = {$active_key}");
+
+    if (!is_user_logged_in()) {
+        $redirect_url = esc_url_raw(add_query_arg('active_key', $active_key, home_url()));
+
+        error_log('[DEBUG] ❌ User not logged in, redirecting to login page.' . $redirect_url);
+
+        wp_redirect(wp_login_url($redirect_url));
+        exit;
+    } else {
+        error_log('[DEBUG] ✅ User is logged in, proceeding with activation.');
+    }
+
+    $post = get_page_by_title($active_key, OBJECT, 'course_key');
+    if (!$post) {
+        error_log("[DEBUG] ❌ No course_key post found with title = {$active_key}");
+        return;
+    }
+
+    $course_id = get_post_meta($post->ID, 'course_id', true);
+    if (!$course_id) {
+        error_log("[DEBUG] ❌ course_id not found in post meta.");
+        return;
+    }
+
+    $user_id = get_current_user_id();
+    error_log("[DEBUG] 🔄 Enrolling user_id={$user_id} to course_id={$course_id}");
+
+    // Check if function exists
+    if (!function_exists('tutor_enroll_a_student')) {
+        $result = enroll_user_to_course_tutor_2x($course_id, $user_id);
+    }
+
+    error_log('[DEBUG] ✅ Enroll result: ' . var_export($result, true));
+
+    // Redirect
+    wp_redirect(get_permalink($course_id));
+    exit;
+}
+
+function enroll_user_to_course_tutor_2x($course_id, $user_id) {
+    // Check if already enrolled
+    $args = array(
+        'post_type'   => 'tutor_enrolled',
+        'post_parent' => $course_id,
+        'author'      => $user_id,
+        'post_status' => 'publish',
+        'fields'      => 'ids',
+    );
+    $existing = get_posts($args);
+
+    if (!empty($existing)) {
+        error_log('[DEBUG] 🔁 User already enrolled.');
+        return 'already_enrolled';
+    }
+
+    $enroll_id = wp_insert_post(array(
+        'post_type'   => 'tutor_enrolled',
+        'post_title'  => 'Enrollment for user ' . $user_id . ' in course ' . $course_id,
+        'post_status' => 'publish',
+        'post_parent' => $course_id,
+        'post_author' => $user_id,
+    ));
+
+    if (is_wp_error($enroll_id)) {
+        error_log('[DEBUG] ❌ Failed to insert enrollment post: ' . $enroll_id->get_error_message());
+        return false;
+    }
+
+    error_log("[DEBUG] ✅ User {$user_id} enrolled in course {$course_id} with post ID {$enroll_id}");
+    return true;
+}
+
+
+// ✅ Hook the activation handler to run early
+// add_action('plugins_loaded', function () {
+//     if (function_exists('tutor') && function_exists('tutor_utils')) {
+//         add_action('template_redirect', 'handle_course_key_activation');
+//     } else {
+//         error_log('[ERROR] Tutor LMS chưa load đầy đủ tại plugins_loaded.');
+//     }
+// });
+
+add_action('init', function () {
+    handle_course_key_activation();
+}, 1);
+
+
+
+// ✅ Display notices
+function display_course_key_notices() {
+    if (isset($_SESSION['course_key_notice'])) {
+        echo '<div id="course-key-notice" style="position:fixed;bottom:20px;right:20px;padding:15px 25px;background:#333;color:#fff;border-radius:8px;z-index:9999;font-size:16px;box-shadow:0 4px 6px rgba(0,0,0,0.1);max-width:400px;">'
+            . esc_html($_SESSION['course_key_notice']) .
+            '<button onclick="document.getElementById(\'course-key-notice\').style.display=\'none\'" style="background:none;border:none;color:#fff;float:right;cursor:pointer;font-size:18px;margin-left:10px;">×</button>'
+            . '</div>';
+
+        // Auto-hide after 5 seconds
+        echo '<script>setTimeout(function(){var notice=document.getElementById("course-key-notice");if(notice)notice.style.display="none";}, 5000);</script>';
+
+        unset($_SESSION['course_key_notice']);
+    }
+}
+add_action('wp_footer', 'display_course_key_notices');
+
+// ✅ Add admin column to show key usage
+function add_course_key_columns($columns) {
+    $columns['course_id'] = 'Course ID';
+    $columns['used'] = 'Used';
+    $columns['used_by'] = 'Used By';
+    $columns['used_date'] = 'Used Date';
+    return $columns;
+}
+add_filter('manage_course_key_posts_columns', 'add_course_key_columns');
+
+function populate_course_key_columns($column, $post_id) {
+    switch ($column) {
+        case 'course_id':
+            $course_id = get_post_meta($post_id, 'course_id', true);
+            if ($course_id) {
+                $course = get_post($course_id);
+                echo $course ? '<a href="' . get_edit_post_link($course_id) . '">' . esc_html($course->post_title) . ' (ID: ' . $course_id . ')</a>' : 'Course not found';
+            } else {
+                echo 'Not set';
+            }
+            break;
+        case 'used':
+            $used = get_post_meta($post_id, 'used', true);
+            echo $used === '1' ? '✅ Yes' : '❌ No';
+            break;
+        case 'used_by':
+            $used_by = get_post_meta($post_id, 'used_by', true);
+            if ($used_by) {
+                $user = get_userdata($used_by);
+                echo $user ? '<a href="' . get_edit_user_link($used_by) . '">' . esc_html($user->display_name) . '</a>' : 'User not found';
+            } else {
+                echo 'N/A';
+            }
+            break;
+        case 'used_date':
+            $used_date = get_post_meta($post_id, 'used_date', true);
+            echo $used_date ? date('Y-m-d H:i:s', strtotime($used_date)) : 'N/A';
+            break;
+    }
+}
+add_action('manage_course_key_posts_custom_column', 'populate_course_key_columns', 10, 2);
+
+// ✅ Add shortcode to generate activation URL
+function course_key_activation_url_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'key' => '',
+        'text' => 'Activate Course'
+    ), $atts);
+
+    if (empty($atts['key'])) {
+        return 'Error: No key provided';
+    }
+
+    $url = home_url('/?active_key=' . urlencode($atts['key']));
+    return '<a href="' . esc_url($url) . '" class="course-activation-link">' . esc_html($atts['text']) . '</a>';
+}
+add_shortcode('course_key_url', 'course_key_activation_url_shortcode');
+
+// ✅ Debug function to check Tutor LMS status
+function debug_tutor_lms_status() {
+    if (current_user_can('manage_options')) {
+        $tutor_functions = [
+            'tutor_enroll_a_student',
+            'tutor_utils',
+            'tutor_get_course_id_by_lesson',
+            'tutor_is_enrolled'
+        ];
+
+        // foreach ($tutor_functions as $func) {
+        //     error_log('[DEBUG] Function ' . $func . ': ' . (function_exists($func) ? 'EXISTS' : 'NOT FOUND'));
+        // }
+
+        // $tutor_active = is_plugin_active('tutor/tutor.php');
+        // error_log('[DEBUG] Tutor LMS plugin active: ' . ($tutor_active ? 'YES' : 'NO'));
+
+        // global $wpdb;
+        // $table_exists = $wpdb->get_var("SHOW TABLES LIKE '{$wpdb->prefix}tutor_enrollments'");
+        // error_log('[DEBUG] Tutor enrollments table exists: ' . ($table_exists ? 'YES' : 'NO'));
+    }
+}
+add_action('wp', 'debug_tutor_lms_status');
+
+// ✅ Alternative enrollment function if Tutor LMS is not available
+function fallback_enroll_student($course_id, $user_id) {
+    global $wpdb;
+
+    // Check if already enrolled
+    $existing = $wpdb->get_var($wpdb->prepare(
+        "SELECT COUNT(*) FROM {$wpdb->prefix}tutor_enrollments
+         WHERE course_id = %d AND user_id = %d",
+        $course_id, $user_id
+    ));
+
+    if ($existing > 0) {
+        return true; // Already enrolled
+    }
+
+    // Insert enrollment record
+    $result = $wpdb->insert(
+        $wpdb->prefix . 'tutor_enrollments',
+        array(
+            'course_id' => $course_id,
+            'user_id' => $user_id,
+            'enrollment_date' => current_time('mysql'),
+            'status' => 'completed'
+        ),
+        array('%d', '%d', '%s', '%s')
+    );
+
+    if ($result) {
+        // Trigger enrollment actions
+        do_action('tutor_after_enroll', $course_id, $user_id);
+        return true;
+    }
+
+    return false;
+}
+add_action('wp_loaded', function () {
+    if (current_user_can('administrator')) {
+        $functions = get_defined_functions();
+        $user_functions = $functions['user'];
+
+        // Kiểm tra 1 số hàm của Tutor LMS
+        $target = [
+            'tutor_enroll_a_student',
+            'tutor_utils',
+            'tutor',
+            'tutor_get_course_by_enrollment',
+        ];
+
+        foreach ($target as $fn) {
+            error_log('[CHECK] Function "' . $fn . '" exists? ' . (in_array($fn, $user_functions) ? 'YES' : 'NO'));
+        }
+    }
+});
+
+// Add this filter to append enrolled students to course content
+add_filter('the_content', 'append_enrolled_students_to_course_content');
+
+function append_enrolled_students_to_course_content($content) {
+    if (!is_singular('courses')) return $content;
+
+    global $post;
+    $course_id = $post->ID;
+    $students = get_enrolled_students_for_course($course_id);
+
+    if (empty($students)) {
+        return '';
+    }
+
+    $output = '<h3>👥 Học viên (' . count($students) . '):</h3><ul>';
+    foreach ($students as $student) {
+        $output .= '<li>' . esc_html($student['name']) . ' (' . esc_html($student['email']) . ')</li>';
+    }
+    $output .= '</ul>';
+
+    return $content . $output;
+}
+
+function get_enrolled_students_for_course($course_id) {
+    $args = array(
+        'post_type'      => 'tutor_enrolled',
+        'post_parent'    => $course_id,
+        'post_status'    => array('publish'),
+        'posts_per_page' => -1,
+    );
+
+    $enrollments = get_posts($args);
+
+    $students = [];
+
+    foreach ($enrollments as $enrollment) {
+        $user_id = $enrollment->post_author;
+        $user = get_userdata($user_id);
+        if ($user) {
+            $students[] = [
+                'ID'    => $user->ID,
+                'name'  => $user->display_name,
+                'email' => $user->user_email,
+            ];
+        }
+    }
+
+    return $students;
+}
+
+
+?>
