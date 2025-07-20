@@ -1,6 +1,8 @@
 # env file
 .env
 
+.htaccess
+
 # visual studio code
 .vscode/
 

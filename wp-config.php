@@ -18,16 +18,25 @@
  * @package WordPress
  */
 
+$env_path = dirname(__FILE__) . '/.env';
+if (file_exists($env_path)) {
+    $env = parse_ini_file($env_path);
+    foreach ($env as $key => $value) {
+        putenv("$key=$value");
+    }
+}
+
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
-define( 'DB_USER', 'root' );
-define( 'DB_PASSWORD', 'root' );
-define( 'DB_HOST', 'localhost:3307' );
+define( 'DB_NAME', getenv('DATABASE_NAME'));
+define( 'DB_USER', getenv('DATABASE_USER'));
+define( 'DB_PASSWORD', getenv('DATABASE_PASSWORD'));
+define( 'DB_HOST', getenv('DATABASE_HOST'));
 define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
-define( 'WP_HOME', 'http://localhost/wordpress' );
-define( 'WP_SITEURL', 'http://localhost/wordpress' );
+define( 'WP_HOME', getenv('WP_HOME'));
+define( 'WP_SITEURL', getenv('WP_SITEURL'));
 
 
 
