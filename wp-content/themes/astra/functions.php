@@ -325,48 +325,41 @@ function handle_course_key_activation() {
     if (!is_user_logged_in()) {
         $redirect_url = esc_url_raw(add_query_arg('active_key', $active_key, home_url()));
 
-        error_log('[DEBUG] ❌ User not logged in, redirecting to login page.' . $redirect_url);
+        $custom_login_url = home_url('/login/?redirect_to=' . urlencode($redirect_url));
 
-        wp_redirect(wp_login_url($redirect_url));
+        wp_redirect($custom_login_url);
         exit;
-    } else {
-        error_log('[DEBUG] ✅ User is logged in, proceeding with activation.');
     }
 
     $post = get_page_by_title($active_key, OBJECT, 'course_key');
     if (!$post) {
-        error_log("[DEBUG] ❌ No course_key post found with title = {$active_key}");
         return;
     }
 
     $course_id = get_post_meta($post->ID, 'course_id', true);
     if (!$course_id) {
-        error_log("[DEBUG] ❌ course_id not found in post meta.");
         return;
     }
 
     $user_id = get_current_user_id();
-    error_log("[DEBUG] 🔄 Enrolling user_id={$user_id} to course_id={$course_id}");
 
     // Check if function exists
     if (!function_exists('tutor_enroll_a_student')) {
-        $result = enroll_user_to_course_tutor_2x($course_id, $user_id);
+        $result = enroll_user_to_course_tutor_2x($course_id, $user_id, $post->ID);
     }
-
-    error_log('[DEBUG] ✅ Enroll result: ' . var_export($result, true));
 
     // Redirect
     wp_redirect(get_permalink($course_id));
     exit;
 }
 
-function enroll_user_to_course_tutor_2x($course_id, $user_id) {
+function enroll_user_to_course_tutor_2x($course_id, $user_id, $course_key_post_id = null) {
     // Check if already enrolled
     $args = array(
         'post_type'   => 'tutor_enrolled',
         'post_parent' => $course_id,
         'author'      => $user_id,
-        'post_status' => 'publish',
+        'post_status' => array('publish'),
         'fields'      => 'ids',
     );
     $existing = get_posts($args);
@@ -389,19 +382,15 @@ function enroll_user_to_course_tutor_2x($course_id, $user_id) {
         return false;
     }
 
+    if ($course_key_post_id) {
+        update_post_meta($course_key_post_id, 'used', '1');
+        update_post_meta($course_key_post_id, 'used_by', $user_id);
+        update_post_meta($course_key_post_id, 'used_date', current_time('mysql'));
+    }
+
     error_log("[DEBUG] ✅ User {$user_id} enrolled in course {$course_id} with post ID {$enroll_id}");
     return true;
 }
-
-
-// ✅ Hook the activation handler to run early
-// add_action('plugins_loaded', function () {
-//     if (function_exists('tutor') && function_exists('tutor_utils')) {
-//         add_action('template_redirect', 'handle_course_key_activation');
-//     } else {
-//         error_log('[ERROR] Tutor LMS chưa load đầy đủ tại plugins_loaded.');
-//     }
-// });
 
 add_action('init', function () {
     handle_course_key_activation();
@@ -529,7 +518,7 @@ function fallback_enroll_student($course_id, $user_id) {
             'course_id' => $course_id,
             'user_id' => $user_id,
             'enrollment_date' => current_time('mysql'),
-            'status' => 'completed'
+            'status' => 'publish'
         ),
         array('%d', '%d', '%s', '%s')
     );
@@ -609,6 +598,55 @@ function get_enrolled_students_for_course($course_id) {
     }
 
     return $students;
+}
+
+// Make sure only enrolled users can access lessons
+
+add_action('template_include', 'tutor_protect_lessons_include', 99);
+
+function tutor_protect_lessons_include($template) {
+    if (!function_exists('tutor_utils')) {
+        return $template;
+    }
+
+    global $post;
+
+    if (!($post instanceof WP_Post)) {
+        return $template;
+    }
+
+    $post_type = get_post_type($post);
+
+    if ($post_type !== 'lesson') {
+        return $template;
+    }
+
+    $course_id = tutor_utils()->get_course_id_by('lesson', $post->ID);
+    if (!$course_id) {
+        return $template;
+    }
+
+    $user_id = get_current_user_id();
+
+    if (!$user_id) {
+        // Not logged in → redirect to custom login
+        $redirect_url = urlencode(get_permalink());
+        wp_redirect(site_url("/login?redirect_to=$redirect_url"));
+        exit;
+    }
+
+    $students = get_enrolled_students_for_course($course_id);
+
+    if ($students) {
+        foreach ($students as $student) {
+            if ($student['ID'] === $user_id) {
+                return $template;
+            }
+        }
+    }
+
+    wp_redirect(get_permalink($course_id));
+    exit;
 }
 
 
