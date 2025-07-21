@@ -13,6 +13,7 @@ services:
     volumes:
       - ./wp-content:/var/www/html/wp-content
       - ./docker-config/wp-config.php:/var/www/html/wp-config.php
+      - ./docker-config/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     depends_on:
       - db
 
